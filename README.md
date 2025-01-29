@@ -126,3 +126,14 @@ The client code I used during the game jam is available here:
 
 That's as far as I could get while on the train back from the Global Game Jam. I hope this write-up helps you set up your secure WebSocket connection. Good luck!
 
+
+
+---------------
+
+```
+cd /token/
+openssl req -x509 -newkey rsa:2048 -keyout ssl_key.pem -out ssl_cert.pem -days 36500 -nodes
+openssl pkcs12 -export -out ssl_window.pfx -inkey ssl_key.pem -in ssl_cert.pem -p
+assout pass:HelloWorld  
+openssl pkcs12 -info -in ssl_window.pfx -passin pass:HelloWorld
+```
